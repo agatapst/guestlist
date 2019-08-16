@@ -17,13 +17,13 @@ const GuestTable = (props) => (
                     <td>{guest.details}</td>
                     <td>{guest.menu}</td>
                     <td>
-                        <button>DELETE</button>
+                        <button onClick={() => props.deleteGuest(guest.id)}>DELETE</button>
                         <button>EDIT</button>
                     </td>
                 </tr>)
         ) : 
         <tr>
-<td>nope</td>
+            <td>nope</td>
         </tr>
         }
     </tbody>

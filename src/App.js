@@ -10,12 +10,19 @@ const App = () => {
     { id: 2, name: 'Basia', details: 'will be late', menu: 'classic' },
   ]
 
+  // ADD
   const [guests, setGuests] = useState(InitialGuests)
    const addNewGuest = newGuest => {
     newGuest.id = guests.length + 1
     setGuests([...guests, newGuest])
   }
 
+  // DELETE
+  const deleteGuest = id => {
+    setGuests(guests.filter(guest => guest.id !== id))
+  }
+
+  // SEARCH
   const [query, setQuery] = useState("")
   const filterGuests = guests => {
     return guests.filter(guest => guest.name.toLowerCase().includes(query.toLowerCase()))
@@ -27,7 +34,7 @@ const App = () => {
       <AddGuestForm addGuest={addNewGuest} />
       <h1>Your Guests:</h1>
       <Searchbar search={setQuery}/>
-      <GuestTable guestsList={filterGuests(guests)} />  
+      <GuestTable guestsList={filterGuests(guests)} deleteGuest={deleteGuest} />  
     </div>
   )
 }
