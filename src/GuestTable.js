@@ -22,7 +22,10 @@ const GuestTable = (props) => (
                     </td>
                 </tr>)
         ) : 
-        <td>nope</td>}
+        <tr>
+<td>nope</td>
+        </tr>
+        }
     </tbody>
    </table> 
 )

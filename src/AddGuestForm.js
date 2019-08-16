@@ -7,18 +7,17 @@ const AddUserForm = props => {
     const handleInputChange = event => {
         const { name, value } = event.target
         setGuest({ ...guest, [name]: value })
-      }
+    }
 
   return (
     <form onSubmit={event => {
         event.preventDefault()
-        if (!guest.name) return
 
         props.addGuest(guest)
         setGuest(InitialGuestForm)
       }}>
       <label>Name</label>
-      <input type="text" name="name" value={guest.name} onChange={handleInputChange}/>
+      <input type="text" name="name" value={guest.name} onChange={handleInputChange} required/>
       <label>Details</label>
       <input type="text" name="details" value={guest.details} onChange={handleInputChange}/>
       <label>Menu</label>
