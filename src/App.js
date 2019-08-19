@@ -32,6 +32,7 @@ const App = () => {
   }
 
   // EDIT
+  // 1. turn on edit mode instead of add new guest mode - switch for edit mode
   const [editing, setEditing] = useState(false)
   const initialFormState = {id: null, displayName: '', details: '', menu: ''}
   const [currentGuest, setCurrentGuest] = useState(initialFormState)
@@ -40,7 +41,8 @@ const App = () => {
     setEditing(true)
     setCurrentGuest({ id: guest.id, displayName: guest.displayName, details: guest.details, menu: guest.menu })
   }
-
+  
+  // 2. actual updating -  map through the array and update the guest that matches the ID passed through
   const updateGuest = (id, updatedGuest) => {
     setEditing(false)
     setGuests(guests.map(guest => (guest.id === id ? updatedGuest : guest)))
