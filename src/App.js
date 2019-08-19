@@ -38,7 +38,7 @@ const App = () => {
 
   const editFormView = guest => {
     setEditing(true)
-    setCurrentGuest({ id: guest.id, name: guest.displayName, details: guest.details, menu: guest.menu })
+    setCurrentGuest({ id: guest.id, displayName: guest.displayName, details: guest.details, menu: guest.menu })
   }
 
   const updateGuest = (id, updatedGuest) => {

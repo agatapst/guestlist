@@ -11,20 +11,20 @@ const EditGuestForm = props => {
 
   return (
     <form
-      // onSubmit={event => {
-      //   event.preventDefault()
-      //   props.updateGuest(guest.id, guest.displayName)
-      // }}
+      onSubmit={event => {
+        event.preventDefault()
+        props.updateGuest(guest.id, guest)
+      }}
     >
       <label>Name</label>
-      <input type="text" name="displayName" value={guest.name} onChange={handleInputChange} />
+      <input type="text" name="displayName" value={guest.displayName} onChange={handleInputChange} />
       <label>Details</label>
       <input type="text" name="details" value={guest.details} onChange={handleInputChange}/>
       <label>Menu</label>
       <input type="text" name="menu" value={guest.menu} onChange={handleInputChange}/>
-      <button onClick={() => props.updateGuest(guest.id, guest.displayName)} className="button muted-button">
+      <button>
         Update user</button>
-      <button onClick={() => props.setEditing(false)} className="button muted-button">
+      <button onClick={() => props.setEditing(false)}>
         Cancel editing
       </button>
     </form>
