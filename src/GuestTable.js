@@ -13,12 +13,12 @@ const GuestTable = (props) => (
         { props.guestsList.length > 0 ? (
             props.guestsList.map(guest => 
                 <tr key={guest.id}>
-                    <td>{guest.name}</td>
+                    <td>{guest.displayName}</td>
                     <td>{guest.details}</td>
                     <td>{guest.menu}</td>
                     <td>
                         <button onClick={() => props.deleteGuest(guest.id)}>DELETE</button>
-                        <button>EDIT</button>
+                        <button onClick={() => props.editFormView(guest)}>EDIT</button>
                     </td>
                 </tr>)
         ) : 
